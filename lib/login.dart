@@ -24,6 +24,11 @@ class _LoginPageState extends State<LoginPage> {
               decoration: const InputDecoration(
                 labelText: 'Email',
               ),
+              validator: (String? value) {
+                if (value!.trim().isEmpty) {
+                  return 'Password is required';
+                }
+              },
               // The validator receives the text that the user has entered.
             ),
             TextFormField(
