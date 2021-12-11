@@ -9,6 +9,8 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -26,10 +28,11 @@ class _LoginPageState extends State<LoginPage> {
               ),
               validator: (String? value) {
                 if (value!.trim().isEmpty) {
-                  return 'Password is required';
+                  return 'Email is required';
                 }
               },
-              // The validator receives the text that the user has entered.
+              controller: emailController,
+              // The validator receives the text that the user has entered
             ),
             TextFormField(
               obscureText: true,
@@ -41,6 +44,7 @@ class _LoginPageState extends State<LoginPage> {
                   return 'Password is required';
                 }
               },
+              controller: passwordController,
               // The validator receives the text that the user has entered.
             ),
             ElevatedButton(
