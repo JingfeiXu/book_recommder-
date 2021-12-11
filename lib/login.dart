@@ -21,8 +21,22 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           children: <Widget>[
             TextFormField(
+              decoration: const InputDecoration(
+                labelText: 'Email',
+              ),
               // The validator receives the text that the user has entered.
-
+            ),
+            TextFormField(
+              obscureText: true,
+              decoration: const InputDecoration(
+                labelText: 'Password',
+              ),
+              validator: (String? value) {
+                if (value!.trim().isEmpty) {
+                  return 'Password is required';
+                }
+              },
+              // The validator receives the text that the user has entered.
             ),
             ElevatedButton(
               onPressed: () {
